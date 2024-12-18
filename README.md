@@ -21,8 +21,9 @@ It can be found under eg_sqlquery repository as **Results.png**
 ## Assumptions
 
 1. **Data Overlap**:
-   - The query assumes that the data in the `inactive_bets`, `active_sportsbook_bet`, and `inactive_sportsbook_bet` tables may have overlapping rows.
-   - To ensure the final result is accurate, **`UNION ALL`** is used to combine the results, which inherently allows duplicates. If data cleanliness is ensured (i.e., the tables do not overlap), **`UNION`** could be used instead to eliminate duplicates.
+   - The query assumes that data in the `inactive_bets`, `active_sportsbook_bet`, and `inactive_sportsbook_bet` tables may overlap, meaning the same `id` might appear in more than one table.
+   - To avoid showing duplicate rows (i.e., the same `id` appearing multiple times), the query uses **`UNION`**. This will eliminate any exact duplicates across all selected columns (e.g., `id`, `user_id`, `game_id`, etc.).
+   - **`DISTINCT`** is applied in the outer query to ensure that no duplicate rows appear based on the selected columns (`id`, `user_id`, `game_id`, etc.), even if the `data_origin` column differs.
      
 2. **Status and Active Fields**:
    - The `status` and `active` fields in the `active_sportsbook_bet` table are consistently populated and follow the provided definitions (e.g., `status = 'settled'` indicates the bet is inactive).
