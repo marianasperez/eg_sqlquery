@@ -49,7 +49,7 @@ VALUES
 -- Insert data into active_sportsbook_bet
 INSERT INTO active_sportsbook_bet (id, user_id, game_id, value, multiplier, profit, created_at, status, active)
 VALUES 
-(7, 107, 7, 300.00, 1.5, 100.00, '2024-12-157 12:15:00', 'settled', false),
+(7, 107, 7, 300.00, 1.5, 100.00, '2024-12-15 12:15:00', 'settled', false),
 (8, 108, 8, 200.00, 2.0, 150.00, '2024-12-16 14:30:00', 'settled', false),
 (9, 109, 9, 100.00, 1.1, 10.00, '2024-12-17 15:45:00', 'settled', false),
 (10, 110, 10, 450.00, 1.8, 180.00, '2024-12-18 16:00:00', 'confirmed', true),
